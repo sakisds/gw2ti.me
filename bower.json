@@ -1,0 +1,22 @@
+{
+  "name": "gw2-timer",
+  "version": "0.0.1",
+  "authors": [
+    "sakisds <contact@thgeorgiou.com>"
+  ],
+  "description": "A boss timer for GW2.",
+  "main": "dist/index.html",
+  "license": "MIT",
+  "homepage": "http://gw2.thgeorgiou.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.5",
+    "angular-tooltips": "~0.1.23"
+  }
+}

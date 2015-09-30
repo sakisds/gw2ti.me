@@ -1,0 +1,114 @@
+mixin boss-big(binding, stringBefore, stringAfter)
+    div.one-half.column(class=['one-half', 'columns', 'boss-big'])
+        -var bindingIcon = '{{' + binding + '.icon }}'
+        -var bindingTime = stringBefore + "<span>{{" + binding + '.timer.text}}</span>' + stringAfter
+        //-var bindingTooltip = '<p>Waypoint: <a>{{' + binding + '.waypoint}}</a></p><img ng-src="{{' + binding + '.mapImage }}"/>' TODO maps
+        -var bindingTooltip = '<p>Waypoint: <a>{{' + binding + '.waypoint}}</a></p>'
+
+        img(ng-src=bindingIcon)
+        div.no-margins
+            h5= '{{' + binding + '.name}}'
+            a(href='', tooltips, title='Location',
+            tooltip-html=bindingTooltip)= '{{' + binding + '.map }}'
+            h4!= bindingTime
+
+
+doctype html
+html
+    //- Head
+    head
+        //- Title & Metadata
+        meta(charset='utf-8')
+        title GW2 Boss Timers
+        meta(name='description', content='A world boss timer for GW2')
+        meta(name='author', content='Thanasis Georgiou')
+
+        //- Viewport
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+
+        //- Font
+        link(rel='stylesheet', type='text/css', href='//fonts.googleapis.com/css?family=Raleway:400,300,600')
+
+        //- Styles
+        link(rel='stylesheet', type='text/css', href='style.css')
+
+        //- Favicon
+        link(rel="apple-touch-icon", sizes="57x57", href="apple-touch-icon-57x57.png")
+        link(rel="apple-touch-icon", sizes="60x60", href="apple-touch-icon-60x60.png")
+        link(rel="apple-touch-icon", sizes="72x72", href="apple-touch-icon-72x72.png")
+        link(rel="apple-touch-icon", sizes="76x76", href="apple-touch-icon-76x76.png")
+        link(rel="apple-touch-icon", sizes="114x114", href="apple-touch-icon-114x114.png")
+        link(rel="apple-touch-icon", sizes="120x120", href="apple-touch-icon-120x120.png")
+        link(rel="apple-touch-icon", sizes="144x144", href="apple-touch-icon-144x144.png")
+        link(rel="apple-touch-icon", sizes="152x152", href="apple-touch-icon-152x152.png")
+        link(rel="apple-touch-icon", sizes="180x180", href="apple-touch-icon-180x180.png")
+        link(rel="icon", type="image/png", href="favicon-32x32.png", sizes="32x32")
+        link(rel="icon", type="image/png", href="favicon-194x194.png", sizes="194x194")
+        link(rel="icon", type="image/png", href="favicon-96x96.png", sizes="96x96")
+        link(rel="icon", type="image/png", href="android-chrome-192x192.png", sizes="192x192")
+        link(rel="icon", type="image/png", href="favicon-16x16.png", sizes="16x16")
+        meta(name="apple-mobile-web-app-title", content="GW2 Boss Timers")
+        meta(name="application-name", content="GW2 Boss Timers")
+        meta(name="theme-color", content="#f4f3ef")
+
+    //- Body
+    body(ng-app='gw2-timer')
+        div.container
+            //- Header
+            header.row
+                img(src='favicon-96x96.png')
+                h1 Guild Wars 2 Boss Timers
+
+            //- Timers
+            section
+                div.row(ng-controller='NextBossesController')
+                    h3.text-color-green Next Bosses
+                    +boss-big('bosses[0]', 'In ', ' minutes.')
+                    +boss-big('bosses[1]', 'In ', ' minutes.')
+                div.row.section(ng-controller='LastBossesController')
+                    h3.text-color-orange Last Bosses
+                    +boss-big('bosses[0]', '', ' ago.')
+                    +boss-big('bosses[1]', '', ' ago.')
+                div.row.section
+                    div.one-half.column(ng-controller='UpcomingListController')
+                        h3 Upcoming events
+                        table.u-full-width
+                            thead
+                                tr
+                                    th.fill Boss
+                                    th Time
+                                    th Remaining
+                            tbody
+                                tr(ng-repeat='event in events')
+                                    td {{ (event.boss.length == 1) ? event.boss[0].name : event.boss[0].name + ' & ' + event.boss[1].name }}
+                                    td {{ event.localTime }}
+                                    td {{ event.timer.text }}
+                    div.one-half.column.u-pull-right(ng-controller='NextTimeListController')
+                        h3 Boss schedule
+                        table.u-full-width
+                            thead
+                                tr
+                                    th.fill Boss
+                                    th Time
+                                    th Remaining
+                            tbody
+                                tr(ng-repeat='boss in bosses')
+                                    td {{ boss.name }}
+                                    td {{ boss.localTime }}
+                                    td {{ boss.timer.text }}
+
+            //- Footer
+            footer.
+                Guild Wars 2 Boss Timer by Thanasis Georgiou, <a href="https://github.com/sakisds/gw2ti.me">Github</a><br>
+                This is an <em>unofficial</em> website and in no away affiliated with ArenaNet or NCSOFT.<br>
+                <br>
+                The boss mugshots and map screenshots are subject to the following copyright notice:<br>
+                &copy; 2015 ArenaNet, LLC. All rights reserved. NCSOFT, the interlocking NC logo, ArenaNet, Guild Wars,
+                Guild Wars Factions, Guild Wars Nightfall, Guild Wars: Eye of the North, Guild Wars 2, and all
+                associated logos and designs are trademarks or registered trademarks of NCSOFT Corporation. All other
+                trademarks are the property of their respective owners.
+
+        //- Scripts
+        script(src='js/angular.js')
+        script(src='js/angular-tooltips.min.js')
+        script(src='js/app.js')
