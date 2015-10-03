@@ -4,8 +4,7 @@ angular.module('gw2-timer').controller('NextTimeListController', ['schedule', 'b
     for (var boss in bossInfo) {
         if (bossInfo.hasOwnProperty(boss)) {
             $scope.bosses.push({
-                name: bossInfo[boss].name,
-                timerText: '--:--:--'
+                name: bossInfo[boss].name
             });
         }
     }
@@ -34,9 +33,9 @@ angular.module('gw2-timer').controller('NextTimeListController', ['schedule', 'b
 
     function tick() {
         // Make text for every timer
-        $scope.bosses.forEach(function (boss) {
-            var date = new Date();
+        var date = new Date();
 
+        $scope.bosses.forEach(function (boss) {
             if (boss.timer.tick(date) == true) refresh();
         });
     }
