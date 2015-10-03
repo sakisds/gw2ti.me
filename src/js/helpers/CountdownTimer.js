@@ -7,9 +7,18 @@
  */
 function CountdownTimer(target, hours, seconds) {
     if (hours == true) this.hours = 0;
+    else this.hours = null;
     if (seconds == true) this.seconds = 0;
+    else this.seconds = null;
 
-    this.target = target;
+    var now = new Date();
+    var nowRaw = getRawTime(now.getUTCHours(), now.getUTCMinutes());
+    if (target < nowRaw) {
+        this.target = (24*60) + target;
+    } else {
+        this.target = target;
+    }
+
     if (hours && seconds) {
         this.text = '--:--:--';
     } else {
