@@ -4,7 +4,7 @@ angular.module('gw2-timer').constant('bossInfo', {
         map: 'Sparkfly Fen',
         hardcore: true,
         icon: 'img/bosses/tequatl.png',
-        mapImage: 'img/maps/tequatl.png',
+        mapImage: 'img/maps/tequatl.jpg',
         waypoint: '[&BNABAAA=]'
     },
     taidha: {
@@ -12,6 +12,7 @@ angular.module('gw2-timer').constant('bossInfo', {
         map: 'Bloodtide Coast',
         hardcore: false,
         icon: 'img/bosses/taidha.png',
+        mapImage: 'img/maps/taidha.jpg',
         waypoint: '[&BKgBAAA=]'
     },
     svanir: {
@@ -19,7 +20,7 @@ angular.module('gw2-timer').constant('bossInfo', {
         map: 'Wayfarer Foothills',
         hardcore: false,
         icon: 'img/bosses/svanir.png',
-        mapImage: 'img/maps/svanir.png',
+        mapImage: 'img/maps/svanir.jpg',
         waypoint: '[&BE4DAAA=]'
     },
     megadestroyer: {
@@ -27,7 +28,7 @@ angular.module('gw2-timer').constant('bossInfo', {
         map: 'Mount Maelstrom',
         hardcore: false,
         icon: 'img/bosses/megadestroyer.png',
-        mapImage: 'img/maps/megadestroyer.png',
+        mapImage: 'img/maps/megadestroyer.jpg',
         waypoint: '[&BM0CAAA=]'
     },
     behemoth: {
@@ -35,7 +36,7 @@ angular.module('gw2-timer').constant('bossInfo', {
         map: 'Queensdale',
         hardcore: false,
         icon: 'img/bosses/behemoth.png',
-        mapImage: 'img/maps/behemoth.png',
+        mapImage: 'img/maps/behemoth.jpg',
         waypoint: '[&BPwAAAA=]'
     },
     golem: {
@@ -43,7 +44,7 @@ angular.module('gw2-timer').constant('bossInfo', {
         map: 'Mount Maelstrom',
         hardcore: false,
         icon: 'img/bosses/golem.png',
-        mapImage: 'img/maps/golem.png',
+        mapImage: 'img/maps/golem.jpg',
         waypoint: '[&BNQCAAA=]'
     },
     karka: {
@@ -51,7 +52,7 @@ angular.module('gw2-timer').constant('bossInfo', {
         map: 'Southsun Cove',
         hardcore: true,
         icon: 'img/bosses/karka.png',
-        mapImage: 'img/maps/karka.png',
+        mapImage: 'img/maps/karka.jpg',
         waypoint: '[&BNcGAAA=]'
     },
     elemental: {
@@ -59,7 +60,7 @@ angular.module('gw2-timer').constant('bossInfo', {
         map: 'Metrica Province',
         hardcore: false,
         icon: 'img/bosses/elemental.png',
-        mapImage: 'img/maps/elemental.png',
+        mapImage: 'img/maps/elemental.jpg',
         waypoint: '[&BEYAAAA=]'
     },
     shatterer: {
@@ -67,7 +68,7 @@ angular.module('gw2-timer').constant('bossInfo', {
         map: 'Blazeridge Steppes',
         hardcore: false,
         icon: 'img/bosses/shatterer.png',
-        mapImage: 'img/maps/shatterer.png',
+        mapImage: 'img/maps/shatterer.jpg',
         waypoint: '[&BE4DAAA=]'
     },
     wurm: {
@@ -75,7 +76,7 @@ angular.module('gw2-timer').constant('bossInfo', {
         map: 'Caledon Forest',
         hardcore: false,
         icon: 'img/bosses/wurm.png',
-        mapImage: 'img/maps/wurm.png',
+        mapImage: 'img/maps/wurm.jpg',
         waypoint: '[&BEEFAAA=]'
     },
     tripleTrouble: {
@@ -83,7 +84,7 @@ angular.module('gw2-timer').constant('bossInfo', {
         map: 'Bloodtide Coast',
         hardcore: true,
         icon: 'img/bosses/tripletrouble.png',
-        mapImage: 'img/maps/tripleTrouble.png',
+        mapImage: 'img/maps/tripleTrouble.jpg',
         waypoint: '[&BKoBAAA=]'
     },
     jormag: {
@@ -91,7 +92,7 @@ angular.module('gw2-timer').constant('bossInfo', {
         map: 'Frostgorge Sound',
         hardcore: false,
         icon: 'img/bosses/jormag.png',
-        mapImage: 'img/maps/jormag.png',
+        mapImage: 'img/maps/jormag.jpg',
         waypoint: '[&BNQCAAA=]'
     },
     modniir: {
@@ -99,7 +100,7 @@ angular.module('gw2-timer').constant('bossInfo', {
         map: 'Harathi Hinterlands',
         hardcore: false,
         icon: 'img/bosses/modniir.png',
-        mapImage: 'img/maps/modniir.png',
+        mapImage: 'img/maps/modniir.jpg',
         waypoint: '[&BLEAAAA=]'
     },
 });
