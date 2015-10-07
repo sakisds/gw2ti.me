@@ -21,7 +21,6 @@ Finally you can use grunt to build the website. To make a development build you 
 build `grunt release`.
 
 # To-do list
-* Maps in location tooltips.
 * Mark daily chests.
 * Some kind of notifications?
 
