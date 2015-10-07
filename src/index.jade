@@ -1,15 +1,18 @@
-mixin boss-big(binding, stringBefore, stringAfter)
-    div.one-half.column(class=['one-half', 'columns', 'boss-big'])
+mixin timer-big(binding, stringBefore, stringAfter)
+    div.one-half.column(class=['one-half', 'columns', 'timer-big'])
         -var bindingIcon = '{{' + binding + '.icon }}'
         -var bindingTime = stringBefore + "<span>{{" + binding + '.timer.text}}</span>' + stringAfter
-        //-var bindingTooltip = '<p>Waypoint: <a>{{' + binding + '.waypoint}}</a></p><img ng-src="{{' + binding + '.mapImage }}"/>' TODO maps
-        -var bindingTooltip = '<p>Waypoint: <a>{{' + binding + '.waypoint}}</a></p>'
 
         img(ng-src=bindingIcon)
         div.no-margins
-            h5= '{{' + binding + '.name}}'
-            a(href='', tooltips, title='Location',
-            tooltip-html=bindingTooltip)= '{{' + binding + '.map }}'
+            h5= '{{ ' + binding + '.name }}'
+            div.tooltip-wrapper
+                a= '{{ ' + binding + '.map }}'
+                div.tooltip
+                    h5= '{{ ' + binding + '.map }}'
+                    p Waypoint:
+                        a= ' {{ ' + binding + '.waypoint}}'
+                    img(ng-src='{{ ' + binding + '.mapImage }}')
             h4!= bindingTime
 
 
@@ -63,12 +66,12 @@ html
             section
                 div.row(ng-controller='NextBossesController')
                     h3.text-color-green Next Bosses
-                    +boss-big('bosses[0]', 'In ', ' minutes.')
-                    +boss-big('bosses[1]', 'In ', ' minutes.')
+                    +timer-big('bosses[0]', 'In ', ' minutes.')
+                    +timer-big('bosses[1]', 'In ', ' minutes.')
                 div.row.section(ng-controller='LastBossesController')
                     h3.text-color-orange Last Bosses
-                    +boss-big('bosses[0]', '', ' ago.')
-                    +boss-big('bosses[1]', '', ' ago.')
+                    +timer-big('bosses[0]', '', ' minutes ago.')
+                    +timer-big('bosses[1]', '', ' minutes ago.')
                 div.row.section
                     div.one-half.column(ng-controller='UpcomingListController')
                         h3 Upcoming events
@@ -110,5 +113,4 @@ html
 
         //- Scripts
         script(src='js/angular.js')
-        script(src='js/angular-tooltips.min.js')
         script(src='js/app.js')

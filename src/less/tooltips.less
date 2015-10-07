@@ -1,153 +1,80 @@
+/* Import typography */
 @import "typography";
 
 /* Tooltip color */
 @color: #40403E;
 
-._720kb-tooltip {
-  .text-color-light;
+.tooltip-wrapper {
+  width: 200px;
+  position: relative;
+}
 
-  background-color: @color;
+.tooltip-wrapper .tooltip {
+  background: @color;
 
-  position: absolute;
-  z-index: 9;
+  pointer-events: none; /* Fix appearing when hovering over the general area of the tooltip */
 
-  padding: 0.4% 1%;
+  display: block;
+  width: 300px;
+  z-index: 10;
+  top: 100%;
+  left: -25px;
+  margin-top: 15px;
+  padding: 20px;
 
   opacity: 0;
-  visibility: hidden;
+  position: absolute;
 
-  border-radius: 6px;
+  transform: translateY(10px);
+  transition: all .25s ease-out;
 
-  left: -200%;
-  top: 0;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+  border-radius: 8px;
 
-  p {
+  /* Make paragraphs white */
+  h5, p {
     .text-color-light;
+  }
+
+  /* Enlarge image */
+  img {
+    width: 300px;
+    height: 300px;
+
+    /* Override .timer-big */
+    float: none;
+    display: inline;
+    margin-right: 0;
   }
 }
 
-._720kb-tooltip-title {
-  font-weight: 500;
-  font-size: 22px;
-
+/* This bridges the gap so you can mouse into the tooltip without it disappearing */
+.tooltip-wrapper .tooltip:before {
+  top: -20px;
+  content: " ";
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
   width: 100%;
-  clear: both;
 }
 
-._720kb-tooltip._720kb-tooltip-small {
-  padding: 4.5px 10px;
-  font-size: 12px;
+/* CSS Triangles - see Trevor's post */
+.tooltip-wrapper .tooltip:after {
+  border-left: solid transparent 10px;
+  border-right: solid transparent 10px;
+  border-bottom: solid @color 10px;
+  top: -10px;
+  content: " ";
+  height: 0;
+  left: 50%;
+  margin-left: -13px;
+  position: absolute;
+  width: 0;
 }
 
-._720kb-tooltip._720kb-tooltip-medium {
-  padding: 7px 15px;
-  font-size: 13.5px;
-}
-
-._720kb-tooltip._720kb-tooltip-large {
-  padding: 10px 20px;
-  font-size: 14px;
-}
-
-._720kb-tooltip._720kb-tooltip-open {
-  visibility: '';
+.tooltip-wrapper:hover .tooltip {
   opacity: 1;
-}
-
-._720kb-tooltip-caret:before {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0;
-  border: 6px solid @color;
-}
-
-._720kb-tooltip-caret:after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0;
-  border: 5px solid transparent;
-}
-
-._720kb-tooltip-left ._720kb-tooltip-caret:before {
-  top: 50%;
-  left: 100%;
-  margin-left: 0;
-  margin-top: -6px;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-  border-right-width: 0;
-}
-
-._720kb-tooltip-left ._720kb-tooltip-caret:after {
-  top: 50%;
-  left: 100%;
-  margin-left: 0;
-  margin-top: -5px;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-  border-right-width: 0;
-}
-
-._720kb-tooltip-right ._720kb-tooltip-caret:before {
-  top: 50%;
-  left: 0;
-  margin-left: -6px;
-  margin-top: -6px;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-  border-left-width: 0;
-}
-
-._720kb-tooltip-right ._720kb-tooltip-caret:after {
-  top: 50%;
-  left: 0;
-  margin-left: -5px;
-  margin-top: -5px;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-  border-left-width: 0;
-}
-
-._720kb-tooltip-top ._720kb-tooltip-caret:before {
-  top: 100%;
-  left: 50%;
-  margin-left: -6px;
-  margin-bottom: -6px;
-  border-right-color: transparent;
-  border-left-color: transparent;
-  border-bottom-width: 0;
-}
-
-._720kb-tooltip-top ._720kb-tooltip-caret:after {
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  margin-bottom: -5px;
-  border-right-color: transparent;
-  border-left-color: transparent;
-  border-bottom-width: 0;
-}
-
-._720kb-tooltip-bottom ._720kb-tooltip-caret:before {
-  bottom: 100%;
-  left: 50%;
-  margin-left: -6px;
-  border-right-color: transparent;
-  border-left-color: transparent;
-  border-top-width: 0;
-}
-
-._720kb-tooltip-bottom ._720kb-tooltip-caret:after {
-  bottom: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-right-color: transparent;
-  border-left-color: transparent;
-  border-top-width: 0;
-}
-
-._720kb-tooltip-close-button {
-  float: right;
+  pointer-events: auto;
+  transform: translateY(0px);
 }
