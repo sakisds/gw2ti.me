@@ -16,7 +16,6 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.4.5",
-    "angular-tooltips": "~0.1.23"
+    "angular": "~1.4.5"
   }
 }

@@ -42,16 +42,7 @@ module.exports = function (grunt) {
                     {expand: true, cwd: 'src/favicon/', src: ['**'], dest: 'dist/'},
                     // Bower Components
                     // - Angular
-                    {expand: true, cwd: 'bower_components/angular/', src: 'angular.js', dest: 'dist/js/'},
-                    // - ngDialog
-                    {expand: true, cwd: 'bower_components/ngDialog/js', src: 'ngDialog.js', dest: 'dist/js/'},
-                    // - angular-hovercard
-                    {
-                        expand: true,
-                        cwd: 'bower_components/angular-tooltips/dist/',
-                        src: 'angular-tooltips.min.js',
-                        dest: 'dist/js/'
-                    }
+                    {expand: true, cwd: 'bower_components/angular/', src: 'angular.js', dest: 'dist/js/'}
                 ]
             }
         },

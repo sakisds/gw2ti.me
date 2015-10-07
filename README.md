@@ -46,4 +46,3 @@ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # Dependencies
 The following libraries are used, both licensed under the MIT License:
 * [Angular.js](https://angularjs.org/)
-* [angular-tooltips](https://github.com/720kb/angular-tooltips)
