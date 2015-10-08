@@ -1,11 +1,11 @@
 /* Import typography */
 @import "typography";
+@import "lib/screen-sizes";
 
 /* Tooltip color */
 @color: #40403E;
 
 .tooltip-wrapper {
-  width: 200px;
   position: relative;
 }
 
@@ -77,4 +77,35 @@
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0px);
+}
+
+/* Fix tooltip extending beyond the screen on mobile */
+@media (max-width: @max-width-phone) {
+  .tooltip-wrapper .tooltip {
+    left: -140px;
+  }
+
+  .tooltip-wrapper .tooltip:after {
+    left: 65%;
+  }
+}
+
+@media (min-width: @max-width-phone) and (max-width: @max-width-phablet) {
+  .tooltip-wrapper .tooltip {
+    left: -120px;
+  }
+
+  .tooltip-wrapper .tooltip:after {
+    left: 55%;
+  }
+}
+
+@media (min-width: @max-width-phablet) and (max-width: @max-width-tablet) {
+  .tooltip-wrapper .tooltip {
+    left: -45px;
+  }
+
+  .tooltip-wrapper .tooltip:after {
+    left: 55%;
+  }
 }
