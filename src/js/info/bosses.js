@@ -84,7 +84,7 @@ angular.module('gw2-timer').constant('bossInfo', {
         map: 'Bloodtide Coast',
         hardcore: true,
         icon: 'img/bosses/tripletrouble.png',
-        mapImage: 'img/maps/tripleTrouble.jpg',
+        mapImage: 'img/maps/tripletrouble.jpg',
         waypoint: '[&BKoBAAA=]'
     },
     jormag: {
