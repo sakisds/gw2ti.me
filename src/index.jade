@@ -4,7 +4,7 @@ mixin timer-big(binding, stringBefore, stringAfter)
         -var bindingTime = stringBefore + "<span>{{" + binding + '.timer.text}}</span>' + stringAfter
 
         img(ng-src=bindingIcon)
-        div.no-margins
+        div(ng-cloak).no-margins
             h5= '{{ ' + binding + '.name }}'
             div.tooltip-wrapper
                 a= '{{ ' + binding + '.map }}'
@@ -82,7 +82,11 @@ html
                                     th Time
                                     th Remaining
                             tbody
-                                tr(ng-repeat='event in events')
+                                tr(ng-cloak).loading
+                                    td ----
+                                    td --:--
+                                    td --:--
+                                tr(ng-repeat='event in events', ng-cloak)
                                     td {{ (event.boss.length == 1) ? event.boss[0].name : event.boss[0].name + ' & ' + event.boss[1].name }}
                                     td {{ event.localTime }}
                                     td {{ event.timer.text }}
@@ -95,7 +99,11 @@ html
                                     th Time
                                     th Remaining
                             tbody
-                                tr(ng-repeat='boss in bosses')
+                                tr(ng-cloak).loading
+                                    td ----
+                                    td --:--
+                                    td --:--
+                                tr(ng-repeat='boss in bosses', ng-cloak)
                                     td {{ boss.name }}
                                     td {{ boss.localTime }}
                                     td {{ boss.timer.text }}
