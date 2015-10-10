@@ -18,6 +18,11 @@ body {
 header {
   margin-top: 2rem;
 
+  @media (max-width: @max-width-tablet) {
+    img {
+      display: none;
+    }
+  }
   img {
     float: left;
     height: 5rem;
