@@ -79,8 +79,21 @@
   transform: translateY(0px);
 }
 
+/* Make tooltip smaller on really narrow devices like the iPhone 4 */
+@media (max-width: @max-width-iphone4) {
+  .tooltip-wrapper .tooltip {
+    left: -40px;
+    width: 260px;
+
+    img {
+      width: 260px;
+      height: 260px;
+    }
+  }
+}
+
 /* Fix tooltip extending beyond the screen on mobile */
-@media (max-width: @max-width-phone) {
+@media (min-width: @max-width-iphone4 + 1) and (max-width: @max-width-phone) {
   .tooltip-wrapper .tooltip {
     left: -140px;
   }
