@@ -1,4 +1,5 @@
 # gw2ti.me
+### Now hosted at gw2.thgeorgiou.com
 A webapp for Guild Wars 2 World Boss timers. The website is using Angular.js and it's running purely on the browser.
 
 # Features
